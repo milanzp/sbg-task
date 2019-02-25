@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {Task} from "../../models/Task";
+import {Task, User} from "../../models";
 
 @Component({
     selector: 'app-task-list',
@@ -9,4 +9,6 @@ import {Task} from "../../models/Task";
 
 export class TaskListComponent {
     @Input() tasks: Task[];
+
+    @Input() user: User;
 }

@@ -1,1 +1,2 @@
-<app-task-list [tasks]="stateService.tasksCollection$ | async"></app-task-list>
+<app-task-list [tasks]="stateService.tasksCollection$ | async"
+               [user]="stateService.user$ | async"></app-task-list>

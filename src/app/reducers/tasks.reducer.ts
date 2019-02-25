@@ -23,6 +23,3 @@ export function reducer(state: State = initialState, action: TasksActions.TasksA
             return state;
     }
 }
-
-export const getTasksCollection = (state: State) => state.collection;
-export const getTaslsLoaded = (state: State) => state.loaded;

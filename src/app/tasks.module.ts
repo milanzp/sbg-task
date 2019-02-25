@@ -7,6 +7,7 @@ import {containers} from "./containers";
 import {components} from "./components";
 import {CommonModule} from "@angular/common";
 import {reducer} from "./reducers/tasks.reducer";
+import {reducer as userReducer} from './reducers/user.reducer'
 import {TasksRoutingModule} from "./tasks-routing.module";
 
 @NgModule({
@@ -15,6 +16,7 @@ import {TasksRoutingModule} from "./tasks-routing.module";
         CommonModule,
         TasksRoutingModule,
         StoreModule.forFeature('tasks', reducer),
+        StoreModule.forFeature('user', userReducer),
         EffectsModule.forFeature(effects)
     ],
     providers: [...services]

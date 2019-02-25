@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 
 import {StateService} from "../../services";
-import {TasksActions} from '../../actions';
+import {TasksActions, UserActions} from '../../actions';
 
 @Component({
     selector: 'app-tasks-collection',
@@ -14,5 +14,6 @@ export class TasksCollectionComponent implements OnInit {
 
     ngOnInit(): void {
         this.stateService.dispatch(new TasksActions.LoadCollection());
+        this.stateService.dispatch(new UserActions.Load());
     }
 }
