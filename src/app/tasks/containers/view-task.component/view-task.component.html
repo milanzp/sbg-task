@@ -1,0 +1,3 @@
+<app-task-details [taskDetails]="stateService.taskDetails$ | async"
+                  [loaded]="stateService.taskDetailsLoaded$ | async"
+                  (delete)="onDelete($event)"></app-task-details>

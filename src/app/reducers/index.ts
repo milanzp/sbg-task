@@ -5,18 +5,15 @@ import {
 } from '@ngrx/store';
 import {environment} from '../../environments/environment';
 
-import * as fromTasks from './tasks.reducer';
 import * as fromUser from './user.reducer';
 import * as fromRouter from '@ngrx/router-store';
 
 export interface State {
-    tasks: fromTasks.State;
     user: fromUser.State;
     router: fromRouter.RouterReducerState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-    tasks: fromTasks.reducer,
     user: fromUser.reducer,
     router: fromRouter.routerReducer,
 };

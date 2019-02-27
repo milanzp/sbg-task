@@ -1,4 +1,4 @@
-import {TasksEffects} from "./tasks.effects";
 import {UserEffects} from "./user.effects";
+import {ProjectEffects} from "./project.effects";
 
-export const effects = [TasksEffects, UserEffects];
+export const effects = [ProjectEffects, UserEffects];

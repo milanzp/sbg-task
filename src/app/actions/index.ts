@@ -1,4 +1,4 @@
-import * as TasksActions from './tasks.actions';
 import * as UserActions from './user.actions';
+import * as ProjectActions from './project.actions';
 
-export { TasksActions, UserActions };
+export {ProjectActions, UserActions};

@@ -3,14 +3,24 @@ import {Action, select, Store} from "@ngrx/store";
 
 import * as fromRoot from '../reducers';
 import {Observable} from "rxjs";
-import {Task, User} from "../models";
-import {TasksSelectors} from "../selectors";
-import {UserSelectors} from "../selectors/user.selectors";
+import {User} from "../models";
+import {UserSelectors} from "../selectors";
+import {Task, TaskDetails} from "../tasks/models";
+
+import { TasksCollectionSelectors, TaskDetailsSelectors } from '../tasks/selectors';
 
 @Injectable()
 export class StateService {
 
-    tasksCollection$: Observable<Task[]> = this.store.pipe(select(TasksSelectors.getTasksCollection));
+    tasksCollection$: Observable<Task[]> = this.store.pipe(select(TasksCollectionSelectors.getTasksCollection));
+
+    taskDetails$: Observable<TaskDetails> = this.store.pipe(select(TaskDetailsSelectors.getTaskDetails));
+
+    taskDetailsLoaded$: Observable<boolean> = this.store.pipe(select(TaskDetailsSelectors.getLoaded));
+
+    statusFilter$: Observable<string> = this.store.pipe(select(TasksCollectionSelectors.getStatusFilter));
+
+    paginationOptions$: Observable<any> = this.store.pipe(select(TasksCollectionSelectors.getPaginationOptions));
 
     user$: Observable<User> = this.store.pipe(select(UserSelectors.getUser));
 

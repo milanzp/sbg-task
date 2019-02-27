@@ -1,5 +1,5 @@
-import { TasksCollectionComponent } from "./tasks-collection/tasks-collection.component";
+import {HeaderComponent} from './header.component/header.component'
 
-export { TasksCollectionComponent } from "./tasks-collection/tasks-collection.component";
+export {HeaderComponent} from './header.component/header.component'
 
-export const containers = [TasksCollectionComponent];
+export const constainers = [HeaderComponent];

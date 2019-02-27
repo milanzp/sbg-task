@@ -1,0 +1,6 @@
+<div class="collection-container">
+    <app-tasks-list-filter (statusSelected)="onStatusSelection($event)"></app-tasks-list-filter>
+    <app-task-list [tasks]="stateService.tasksCollection$ | async"
+                   (paginationChanged)="onPagination($event)"
+                   (taskSelected)="onSelectedTask($event)"></app-task-list>
+</div>

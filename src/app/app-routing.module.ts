@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {TasksCollectionComponent} from "./containers";
 
 const routes: Routes = [
     {path: '', redirectTo: '/tasks', pathMatch: 'full'},
-    {path: 'tasks', component: TasksCollectionComponent},
+    {path: 'tasks', loadChildren: './tasks/tasks.module#TasksModule'},
     {path: '**', redirectTo: '/tasks'}
 ];
 

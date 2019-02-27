@@ -1,0 +1,4 @@
+<div class="header-container">
+    <app-header-information [user]="stateService.user$ | async"></app-header-information>
+    <app-header-actions (createProject)="onCreateProject()"></app-header-actions>
+</div>

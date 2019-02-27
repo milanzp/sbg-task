@@ -1,9 +1,10 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {TasksCollectionComponent} from "./containers";
+import {TasksCollectionComponent, ViewTaskComponent} from "./containers";
 
 export const routes: Routes = [
-    {path: '', component: TasksCollectionComponent}
+    {path: '', component: TasksCollectionComponent},
+    {path: ':id', component: ViewTaskComponent}
 ];
 
 @NgModule({
