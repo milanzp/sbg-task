@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { Observable, of } from "rxjs";
-import { Action } from "@ngrx/store";
-import { TaskActions } from "../actions";
-import { catchError, map, switchMap } from "rxjs/operators";
-import { ApiService } from "../../services";
-import { MatSnackBar } from "@angular/material";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Observable, of } from 'rxjs';
+import { Action } from '@ngrx/store';
+import { TaskActions } from '../actions';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { ApiService } from '../../services';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class TaskEffects {
@@ -38,7 +38,7 @@ export class TaskEffects {
     deleteFail$: Observable<any> = this.actions$.pipe(
         ofType<TaskActions.DeleteFail>(TaskActions.TaskActionsTypes.DeleteFail),
         map(action =>
-            this.snackBar.open("Delete failed: " + action.payload, "", {
+            this.snackBar.open('Delete failed: ' + action.payload, '', {
                 duration: 2000
             })
         )
@@ -50,8 +50,8 @@ export class TaskEffects {
             TaskActions.TaskActionsTypes.DeleteSuccess
         ),
         map(action => {
-            this.router.navigate(["/tasks"]);
-            this.snackBar.open("Successfully deleted: " + action.payload, "", {
+            this.router.navigate(['/tasks']);
+            this.snackBar.open('Successfully deleted: ' + action.payload, '', {
                 duration: 2000
             });
         })

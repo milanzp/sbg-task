@@ -1,13 +1,13 @@
-import { Action } from "@ngrx/store";
-import { TaskDetails } from "../models";
+import { Action } from '@ngrx/store';
+import { TaskDetails } from '../models';
 
 export enum TaskActionsTypes {
-    Load = "[Task] Load",
-    LoadSuccess = "[Task] Load Success",
-    LoadFail = "[Task] Load Fail",
-    Delete = "[Task] Delete",
-    DeleteSuccess = "[Task] Delete Success",
-    DeleteFail = "[Task] Delete Fail"
+    Load = '[Task] Load',
+    LoadSuccess = '[Task] Load Success',
+    LoadFail = '[Task] Load Fail',
+    Delete = '[Task] Delete',
+    DeleteSuccess = '[Task] Delete Success',
+    DeleteFail = '[Task] Delete Fail'
 }
 
 export class Load implements Action {

@@ -1,5 +1,5 @@
-import { User } from "../models";
-import { UserActions } from "../actions";
+import { User } from '../models';
+import { UserActions } from '../actions';
 
 export interface State {
     user: User;

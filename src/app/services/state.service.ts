@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { Action, select, Store } from "@ngrx/store";
+import { Injectable } from '@angular/core';
+import { Action, select, Store } from '@ngrx/store';
 
-import * as fromRoot from "../reducers";
-import { Observable } from "rxjs";
-import { User } from "../models";
-import { UserSelectors } from "../selectors";
-import { Task, TaskDetails } from "../tasks/models";
+import * as fromRoot from '../reducers';
+import { Observable } from 'rxjs';
+import { User } from '../models';
+import { UserSelectors } from '../selectors';
+import { Task, TaskDetails } from '../tasks/models';
 
 import {
     TasksCollectionSelectors,
     TaskDetailsSelectors
-} from "../tasks/selectors";
+} from '../tasks/selectors';
 
 @Injectable()
 export class StateService {

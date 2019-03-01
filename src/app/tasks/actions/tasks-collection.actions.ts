@@ -1,13 +1,13 @@
-import { Action } from "@ngrx/store";
-import { PageEvent } from "@angular/material";
-import { Task } from "../models";
+import { Action } from '@ngrx/store';
+import { PageEvent } from '@angular/material';
+import { Task } from '../models';
 
 export enum TasksCollectionActionsTypes {
-    LoadCollection = "[Tasks] Load Collection",
-    LoadCollectionSuccess = "[Tasks] Load Collection Success",
-    LoadCollectionFail = "[Tasks] Load Collection Fail",
-    PaginationChange = "[Tasks] Pagination Change",
-    FilterByStatus = "[Tasks] Filter By Status"
+    LoadCollection = '[Tasks] Load Collection',
+    LoadCollectionSuccess = '[Tasks] Load Collection Success',
+    LoadCollectionFail = '[Tasks] Load Collection Fail',
+    PaginationChange = '[Tasks] Pagination Change',
+    FilterByStatus = '[Tasks] Filter By Status'
 }
 
 export class LoadCollection implements Action {

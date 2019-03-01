@@ -1,10 +1,10 @@
-import { Task } from "../models";
-import { TasksCollectionActions } from "../actions";
+import { Task } from '../models';
+import { TasksCollectionActions } from '../actions';
 import {
     defaultPaginationPageSize,
     paginationPageSizeOptions
-} from "../config";
-import { TasksCollectionActionsTypes } from "../actions/tasks-collection.actions";
+} from '../config';
+import { TasksCollectionActionsTypes } from '../actions/tasks-collection.actions';
 
 export interface State {
     collection: Task[];
@@ -19,7 +19,7 @@ const initialState: State = {
     collection: [],
     count: 0,
     loaded: false,
-    statusFilter: "",
+    statusFilter: '',
     pageSize: defaultPaginationPageSize,
     pageIndex: 0
 };

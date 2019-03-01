@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { Observable, of } from "rxjs";
-import { Action } from "@ngrx/store";
-import { catchError, map, switchMap } from "rxjs/operators";
-import { ApiService } from "../services";
-import { ProjectActions } from "../actions";
-import { MatSnackBar } from "@angular/material";
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Observable, of } from 'rxjs';
+import { Action } from '@ngrx/store';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { ApiService } from '../services';
+import { ProjectActions } from '../actions';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class ProjectEffects {
@@ -35,8 +35,8 @@ export class ProjectEffects {
         ),
         map(action =>
             this.snackBar.open(
-                "Creating project failed: " + action.payload,
-                "",
+                'Creating project failed: ' + action.payload,
+                '',
                 { duration: 2000 }
             )
         )

@@ -1,9 +1,9 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { State, TasksState } from "../reducers";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { State, TasksState } from '../reducers';
 
 export namespace TasksCollectionSelectors {
     export const getTasksState = createFeatureSelector<State, TasksState>(
-        "tasks"
+        'tasks'
     );
 
     export const getTasksCollectionState = createSelector(

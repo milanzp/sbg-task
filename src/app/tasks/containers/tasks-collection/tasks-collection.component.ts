@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { StateService } from "../../../services";
-import { PageEvent } from "@angular/material";
-import { Router } from "@angular/router";
-import { TasksCollectionActions } from "../../actions";
-import { Task } from "../../models";
+import { Component, OnInit } from '@angular/core';
+import { StateService } from '../../../services';
+import { PageEvent } from '@angular/material';
+import { Router } from '@angular/router';
+import { TasksCollectionActions } from '../../actions';
+import { Task } from '../../models';
 
 @Component({
-    selector: "app-tasks-collection",
-    templateUrl: "tasks-collection.component.html",
-    styleUrls: ["tasks-collection.component.css"]
+    selector: 'app-tasks-collection',
+    templateUrl: 'tasks-collection.component.html',
+    styleUrls: ['tasks-collection.component.css']
 })
 export class TasksCollectionComponent implements OnInit {
     constructor(private stateService: StateService, private router: Router) {}
@@ -24,7 +24,7 @@ export class TasksCollectionComponent implements OnInit {
     }
 
     onSelectedTask(task: Task): void {
-        this.router.navigate(["/tasks", task.id]);
+        this.router.navigate(['/tasks', task.id]);
     }
 
     onStatusSelection(status: any): void {

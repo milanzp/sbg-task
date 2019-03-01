@@ -1,5 +1,5 @@
-import { TaskDetails } from "../models";
-import { TaskActions } from "../actions";
+import { TaskDetails } from '../models';
+import { TaskActions } from '../actions';
 
 export interface State {
     taskDetails: TaskDetails;

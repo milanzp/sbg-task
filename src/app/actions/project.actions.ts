@@ -1,10 +1,10 @@
-import { Action } from "@ngrx/store";
-import { TaskDetails } from "../tasks/models";
+import { Action } from '@ngrx/store';
+import { TaskDetails } from '../tasks/models';
 
 export enum ProjectActionsTypes {
-    Create = "[Project] Create",
-    CreateSuccess = "[Project] Create Success",
-    CreateFail = "[Project] Create Fail"
+    Create = '[Project] Create',
+    CreateSuccess = '[Project] Create Success',
+    CreateFail = '[Project] Create Fail'
 }
 
 export class Create implements Action {

@@ -1,7 +1,7 @@
-import * as fromTasksCollection from "./tasks-collection.reducer";
-import * as fromTask from "./task.reducer";
-import { ActionReducerMap } from "@ngrx/store";
-import * as fromRoot from "../../reducers";
+import * as fromTasksCollection from './tasks-collection.reducer';
+import * as fromTask from './task.reducer';
+import { ActionReducerMap } from '@ngrx/store';
+import * as fromRoot from '../../reducers';
 
 export interface TasksState {
     tasksCollection: fromTasksCollection.State;
