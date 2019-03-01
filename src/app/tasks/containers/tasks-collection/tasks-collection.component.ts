@@ -1,8 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-
 import {StateService} from "../../../services";
-import {UserActions} from '../../../actions';
-import {MatDialog, PageEvent} from "@angular/material";
+import {PageEvent} from "@angular/material";
 import {Router} from "@angular/router";
 import {TasksCollectionActions} from "../../actions";
 import {Task} from "../../models";
@@ -18,7 +16,6 @@ export class TasksCollectionComponent implements OnInit {
 
     ngOnInit(): void {
         this.stateService.dispatch(new TasksCollectionActions.LoadCollection());
-        this.stateService.dispatch(new UserActions.Load());
     }
 
     onPagination(pageEvent: PageEvent): void {

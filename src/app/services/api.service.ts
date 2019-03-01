@@ -19,11 +19,11 @@ export class ApiService {
 
     getTasksCollection(status: string, paginationOptions: PaginationOptions): Observable<{ tasks: Task[], count: number }> {
         let params = new HttpParams();
-        if (paginationOptions.limit) {
-            params = params.set('limit', paginationOptions.limit.toString());
+        if (paginationOptions.size) {
+            params = params.set('limit', paginationOptions.size.toString());
         }
-        if (paginationOptions.offset) {
-            params = params.set('offset', paginationOptions.offset.toString());
+        if (paginationOptions.index) {
+            params = params.set('offset', (paginationOptions.index * paginationOptions.size).toString());
         }
         if (status) {
             params = params.set('status', status);

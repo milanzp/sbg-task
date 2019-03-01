@@ -1,32 +1,39 @@
-<div *ngIf="!loaded" class="spinner-container">
-    <mat-progress-spinner diameter="30" mode="indeterminate"></mat-progress-spinner>
-</div>
+<ng-container *ngIf="!loaded; then loader; else tasksContainer"></ng-container>
 
-<!-- used hidden because ngIf breaks matPaginator -->
-<div [hidden]="!loaded" class="mat-elevation-z6">
-    <ng-container *ngIf="count > 0; then tasksList; else noTasks"></ng-container>
+<ng-template #loader>
+    <div class="spinner-container">
+        <mat-progress-spinner diameter="30" mode="indeterminate"></mat-progress-spinner>
+    </div>
+</ng-template>
 
-    <ng-template #tasksList>
-        <table mat-table [dataSource]="tasksDataSource" class="tasks-table">
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Task name</th>
-                <td mat-cell *matCellDef="let task" (click)="onSelectTask(task)">
-                    {{task.name}}
-                </td>
-            </ng-container>
+<ng-template #tasksContainer>
+    <div class="mat-elevation-z6">
+        <ng-container *ngIf="count > 0; then tasksList; else noTasks"></ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="['name']"></tr>
-            <tr mat-row *matRowDef="let task; columns: ['name'];"></tr>
+        <ng-template #tasksList>
+            <table mat-table [dataSource]="tasksDataSource" class="tasks-table">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Task name</th>
+                    <td mat-cell *matCellDef="let task" (click)="onSelectTask(task)">
+                        {{task.name}}
+                    </td>
+                </ng-container>
 
-        </table>
-        <mat-paginator [length]="count"
-                       [pageSize]="defaultPageSize"
-                       [pageSizeOptions]="pageSizeOptions"
-                       (page)="onPagination($event)"></mat-paginator>
+                <tr mat-header-row *matHeaderRowDef="['name']"></tr>
+                <tr mat-row *matRowDef="let task; columns: ['name'];"></tr>
 
-    </ng-template>
+            </table>
+            <mat-paginator [length]="count"
+                           [pageSize]="paginationOptions.size"
+                           [pageSizeOptions]="pageSizeOptions"
+                           [pageIndex]="paginationOptions.index"
+                           (page)="onPagination($event)"></mat-paginator>
 
-    <ng-template #noTasks>
-        <p class="no-tasks-message">There are no tasks {{selectedStatus ? 'with status: ' + selectedStatus : ''}}</p>
-    </ng-template>
-</div>
+        </ng-template>
+
+        <ng-template #noTasks>
+            <p class="no-tasks-message">There are no
+                tasks {{selectedStatus ? 'with status: ' + selectedStatus : ''}}</p>
+        </ng-template>
+    </div>
+</ng-template>

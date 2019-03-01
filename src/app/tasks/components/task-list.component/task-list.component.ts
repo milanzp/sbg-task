@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {MatTableDataSource, PageEvent} from "@angular/material";
-import {defaultPaginationPageSize, paginationPageSizeOptions} from "../../config";
-import {Task} from "../../models";
+import {paginationPageSizeOptions} from "../../config";
+import {PaginationOptions, Task} from "../../models";
 
 @Component({
     selector: 'app-task-list',
@@ -10,7 +10,6 @@ import {Task} from "../../models";
 })
 export class TaskListComponent {
     pageSizeOptions = paginationPageSizeOptions;
-    defaultPageSize = defaultPaginationPageSize;
 
     tasksDataSource: MatTableDataSource<Task>;
 
@@ -24,6 +23,8 @@ export class TaskListComponent {
     @Input() selectedStatus: string;
 
     @Input() loaded: boolean;
+
+    @Input() paginationOptions: PaginationOptions;
 
     @Output() paginationChanged: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
 

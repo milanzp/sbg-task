@@ -1,9 +1,11 @@
 <div class="collection-container">
-    <app-tasks-list-filter (statusSelected)="onStatusSelection($event)"></app-tasks-list-filter>
+    <app-tasks-list-filter [status]="stateService.statusFilter$ | async"
+                           (statusSelected)="onStatusSelection($event)"></app-tasks-list-filter>
     <app-task-list [tasks]="stateService.tasksCollection$ | async"
                    [count]="stateService.tasksCollectionCount$ | async"
                    [loaded]="stateService.tasksCollectionLoaded$ | async"
                    [selectedStatus]="stateService.statusFilter$ | async"
+                   [paginationOptions]="stateService.paginationOptions$ | async"
                    (paginationChanged)="onPagination($event)"
                    (taskSelected)="onSelectedTask($event)"></app-task-list>
 </div>

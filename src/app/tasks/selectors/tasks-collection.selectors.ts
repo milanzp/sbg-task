@@ -13,7 +13,7 @@ export namespace TasksCollectionSelectors {
 
     export const getCount = createSelector(getTasksCollectionState, state => state.count);
 
-    export const getStatusFilter = createSelector(getTasksCollectionState, state => state.statusFilter)
+    export const getStatusFilter = createSelector(getTasksCollectionState, state => state.statusFilter);
 
 
 
@@ -21,10 +21,10 @@ export namespace TasksCollectionSelectors {
 
     export const getPageSize = createSelector(getTasksCollectionState, state => state.pageSize);
 
-    export const convertPaginationOptions = (pageIndex, pageSize) => ({
-        limit: pageSize,
-        offset: pageIndex * pageSize
+    export const combinePaginationOptions = (pageIndex, pageSize) => ({
+        size: pageSize,
+        index: pageIndex
     });
 
-    export const getPaginationOptions = createSelector(getPageIndex, getPageSize, convertPaginationOptions);
+    export const getPaginationOptions = createSelector(getPageIndex, getPageSize, combinePaginationOptions);
 }

@@ -1,5 +1,5 @@
 <mat-form-field>
-    <mat-select placeholder="Status" (selectionChange)="onStatusSelection($event.value)">
+    <mat-select placeholder="Status" (selectionChange)="onStatusSelection($event.value)" [(value)]="status">
         <mat-option>ALL</mat-option>
         <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
     </mat-select>

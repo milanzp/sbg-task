@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {availableTaskStatuses} from "../../config";
 
 @Component({
@@ -9,6 +9,8 @@ import {availableTaskStatuses} from "../../config";
 export class TasksListFilterComponent {
 
     statuses = availableTaskStatuses;
+
+    @Input() status: string;
 
     @Output() statusSelected: EventEmitter<string> = new EventEmitter<string>();
 
