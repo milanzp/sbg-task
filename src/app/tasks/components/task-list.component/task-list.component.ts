@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
-import {MatTableDataSource, PageEvent} from "@angular/material";
-import {paginationPageSizeOptions} from "../../config";
-import {PaginationOptions, Task} from "../../models";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { MatTableDataSource, PageEvent } from "@angular/material";
+import { paginationPageSizeOptions } from "../../config";
+import { PaginationOptions, Task } from "../../models";
 
 @Component({
-    selector: 'app-task-list',
-    templateUrl: 'task-list.component.html',
-    styleUrls: ['task-list.component.css']
+    selector: "app-task-list",
+    templateUrl: "task-list.component.html",
+    styleUrls: ["task-list.component.css"]
 })
 export class TaskListComponent {
     pageSizeOptions = paginationPageSizeOptions;
@@ -26,7 +26,9 @@ export class TaskListComponent {
 
     @Input() paginationOptions: PaginationOptions;
 
-    @Output() paginationChanged: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
+    @Output() paginationChanged: EventEmitter<PageEvent> = new EventEmitter<
+        PageEvent
+    >();
 
     @Output() taskSelected: EventEmitter<Task> = new EventEmitter<Task>();
 

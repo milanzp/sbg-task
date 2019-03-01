@@ -1,4 +1,4 @@
 export interface PaginationOptions {
-    size: number,
-    index: number
+    size: number;
+    index: number;
 }

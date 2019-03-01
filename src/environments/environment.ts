@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'https://cavatica-api.sbgenomics.com/v2'
+    apiUrl: "https://cavatica-api.sbgenomics.com/v2"
 };
 
 /*

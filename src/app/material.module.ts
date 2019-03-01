@@ -1,9 +1,12 @@
-import {NgModule} from "@angular/core";
+import { NgModule } from "@angular/core";
 import {
-    MatButtonModule, MatDialogModule, MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatSelectModule, MatSnackBarModule,
+    MatSelectModule,
+    MatSnackBarModule,
     MatTableModule
 } from "@angular/material";
 

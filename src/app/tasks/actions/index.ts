@@ -1,4 +1,4 @@
-import * as TasksCollectionActions from './tasks-collection.actions';
-import * as TaskActions from './task.actions';
+import * as TasksCollectionActions from "./tasks-collection.actions";
+import * as TaskActions from "./task.actions";
 
-export {TasksCollectionActions, TaskActions};
+export { TasksCollectionActions, TaskActions };
