@@ -11,7 +11,8 @@ export class CreateProjectDialogComponent {
     projectName: string = '';
 
     constructor(
-        public dialogRef: MatDialogRef<CreateProjectDialogComponent>) {}
+        public dialogRef: MatDialogRef<CreateProjectDialogComponent>) {
+    }
 
     closeModal(): void {
         this.dialogRef.close();

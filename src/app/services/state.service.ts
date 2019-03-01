@@ -14,11 +14,16 @@ export class StateService {
 
     tasksCollection$: Observable<Task[]> = this.store.pipe(select(TasksCollectionSelectors.getTasksCollection));
 
+    tasksCollectionLoaded$: Observable<boolean> = this.store.pipe(select(TasksCollectionSelectors.getLoaded));
+
+    tasksCollectionCount$: Observable<number> = this.store.pipe(select(TasksCollectionSelectors.getCount));
+
     taskDetails$: Observable<TaskDetails> = this.store.pipe(select(TaskDetailsSelectors.getTaskDetails));
 
     taskDetailsLoaded$: Observable<boolean> = this.store.pipe(select(TaskDetailsSelectors.getLoaded));
 
     statusFilter$: Observable<string> = this.store.pipe(select(TasksCollectionSelectors.getStatusFilter));
+
 
     paginationOptions$: Observable<any> = this.store.pipe(select(TasksCollectionSelectors.getPaginationOptions));
 

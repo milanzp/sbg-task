@@ -15,7 +15,7 @@ export class HeaderComponent {
 
     onCreateProject(): void {
         const dialogRef = this.dialog.open(CreateProjectDialogComponent, {
-            width: '348px',
+            width: '348px'
         });
 
         dialogRef.afterClosed().subscribe(result => {

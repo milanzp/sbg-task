@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {User} from "../models";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
 import {PaginationOptions, Task, TaskDetails} from "../tasks/models";
@@ -17,11 +17,23 @@ export class ApiService {
     constructor(private httpClient: HttpClient) {
     }
 
-    getTasksCollection(status: string, paginationOptions: PaginationOptions): Observable<Task[]> {
-        const limitParameter = paginationOptions.limit ? 'limit=' + paginationOptions.limit : '';
-        const offsetParameter = paginationOptions.offset ? '&offset=' + paginationOptions.offset : '';
-        const statusParameter = status ? '&status=' + status : '';
-        return this.httpClient.get<{ items: Task[] }>(`${API_URL}/tasks?${limitParameter}${offsetParameter}${statusParameter}`, {headers}).pipe(map(response => <Task[]>(response.items)));
+    getTasksCollection(status: string, paginationOptions: PaginationOptions): Observable<{ tasks: Task[], count: number }> {
+        let params = new HttpParams();
+        if (paginationOptions.limit) {
+            params = params.set('limit', paginationOptions.limit.toString());
+        }
+        if (paginationOptions.offset) {
+            params = params.set('offset', paginationOptions.offset.toString());
+        }
+        if (status) {
+            params = params.set('status', status);
+        }
+        return this.httpClient.get(`${API_URL}/tasks`, {params, headers, observe: 'response'}).pipe(map(
+            (response: HttpResponse<any>) => Object.assign({}, {
+                tasks: response.body.items,
+                count: +response.headers.get("x-total-matching-query")
+            })
+        ));
     }
 
     getTaskDetails(id: string): Observable<TaskDetails> {

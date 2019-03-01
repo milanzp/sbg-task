@@ -23,6 +23,8 @@ export class CreateSuccess implements Action {
 
 export class CreateFail implements Action {
     readonly type = ProjectActionsTypes.CreateFail;
+
+    constructor(public payload: string) {}
 }
 
 export type ProjectActionsUnion = Create

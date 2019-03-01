@@ -19,6 +19,12 @@ export class TaskListComponent {
         this.tasksDataSource = new MatTableDataSource(tasks);
     }
 
+    @Input() count: number;
+
+    @Input() selectedStatus: string;
+
+    @Input() loaded: boolean;
+
     @Output() paginationChanged: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
 
     @Output() taskSelected: EventEmitter<Task> = new EventEmitter<Task>();

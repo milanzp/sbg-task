@@ -14,7 +14,7 @@ export class TasksCollectionEffects {
         ofType(TasksCollectionActions.TasksCollectionActionsTypes.LoadCollection),
         withLatestFrom(this.stateService.statusFilter$, this.stateService.paginationOptions$),
         switchMap(([_, statusFilter, paginationOptions]) => this.apiService.getTasksCollection(statusFilter, paginationOptions).pipe(
-            map(tasks => new TasksCollectionActions.LoadCollectionSuccess(tasks)),
+            map(result => new TasksCollectionActions.LoadCollectionSuccess(result)),
             catchError(() => of(new TasksCollectionActions.LoadCollectionFail()))
         ))
     );

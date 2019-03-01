@@ -5,6 +5,7 @@ import {Action} from "@ngrx/store";
 import {catchError, map, switchMap} from "rxjs/operators";
 import {ApiService} from "../services";
 import {ProjectActions} from "../actions";
+import {MatSnackBar} from "@angular/material";
 
 @Injectable()
 export class ProjectEffects {
@@ -13,14 +14,17 @@ export class ProjectEffects {
     create$: Observable<Action> = this.actions$.pipe(
         ofType<ProjectActions.Create>(ProjectActions.ProjectActionsTypes.Create),
         switchMap(action => this.apiService.createProject(action.payload).pipe(
-            map(project => {
-                console.log('EFEKAT');
-                return new ProjectActions.CreateSuccess(project);
-            }),
-            catchError(() => of(new ProjectActions.CreateFail()))
+            map(project => new ProjectActions.CreateSuccess(project)),
+            catchError(errorResponse => of(new ProjectActions.CreateFail(errorResponse.error.message)))
         ))
     );
 
-    constructor(private actions$: Actions, private apiService: ApiService) {
+    @Effect({dispatch: false})
+    createFail$: Observable<any> = this.actions$.pipe(
+        ofType<ProjectActions.CreateFail>(ProjectActions.ProjectActionsTypes.CreateFail),
+        map(action => this.snackBar.open('Creating project failed: ' + action.payload, '', {duration: 2000}))
+    );
+
+    constructor(private actions$: Actions, private apiService: ApiService, private snackBar: MatSnackBar) {
     }
 }

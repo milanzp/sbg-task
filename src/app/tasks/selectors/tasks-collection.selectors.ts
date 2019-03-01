@@ -9,7 +9,13 @@ export namespace TasksCollectionSelectors {
 
     export const getTasksCollection = createSelector(getTasksCollectionState, state => state.collection);
 
+    export const getLoaded = createSelector(getTasksCollectionState, state => state.loaded);
+
+    export const getCount = createSelector(getTasksCollectionState, state => state.count);
+
     export const getStatusFilter = createSelector(getTasksCollectionState, state => state.statusFilter)
+
+
 
     export const getPageIndex = createSelector(getTasksCollectionState, state => state.pageIndex);
 

@@ -31,16 +31,22 @@ export class LoadFail implements Action {
 export class Delete implements Action {
     readonly type = TaskActionsTypes.Delete;
 
-    constructor(public payload: string) {
+    constructor(public payload: TaskDetails) {
     }
 }
 
 export class DeleteSuccess implements Action {
     readonly type = TaskActionsTypes.DeleteSuccess;
+
+    constructor(public payload: string) {
+    }
 }
 
 export class DeleteFail implements Action {
     readonly type = TaskActionsTypes.DeleteFail;
+
+    constructor(public payload: string) {
+    }
 }
 
 export type TaskDetailsActionsUnion = Load

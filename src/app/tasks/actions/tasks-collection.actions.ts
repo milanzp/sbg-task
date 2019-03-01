@@ -17,7 +17,7 @@ export class LoadCollection implements Action {
 export class LoadCollectionSuccess implements Action {
     readonly type = TasksCollectionActionsTypes.LoadCollectionSuccess;
 
-    constructor(public payload: Task[]) {
+    constructor(public payload: {tasks: Task[], count: number}) {
     }
 }
 

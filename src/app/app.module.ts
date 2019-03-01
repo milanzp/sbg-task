@@ -11,13 +11,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {StoreRouterConnectingModule} from "@ngrx/router-store";
 import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatDialogModule, MatInputModule, MatTableModule} from "@angular/material";
 import {effects} from "./effects";
 import {services} from "./services";
 import {constainers} from "./containers";
 import {components} from "./components";
 import {entryComponents} from "./entry-components";
 import {FormsModule} from "@angular/forms";
+import {MaterialModule} from "./material.module";
 
 @NgModule({
     declarations: [
@@ -34,11 +34,8 @@ import {FormsModule} from "@angular/forms";
         EffectsModule.forRoot(effects),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
         BrowserAnimationsModule,
-        MatTableModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatInputModule,
-        FormsModule
+        FormsModule,
+        MaterialModule
     ],
     providers: [...services],
     bootstrap: [AppComponent]

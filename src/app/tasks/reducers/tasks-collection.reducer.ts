@@ -5,22 +5,20 @@ import {TasksCollectionActionsTypes} from "../actions/tasks-collection.actions";
 
 export interface State {
     collection: Task[];
+    count: number;
     loaded: boolean;
     statusFilter: string;
     pageSize: number;
     pageIndex: number;
-    length: number;
-    pageSizeOptions: number[];
 }
 
 const initialState: State = {
     collection: [],
+    count: 0,
     loaded: false,
     statusFilter: '',
     pageSize: defaultPaginationPageSize,
     pageIndex: 0,
-    length: 0,
-    pageSizeOptions: paginationPageSizeOptions
 };
 
 export function reducer(state: State = initialState, action: TasksCollectionActions.TasksCollectionActionsUnion): State {
@@ -28,11 +26,11 @@ export function reducer(state: State = initialState, action: TasksCollectionActi
         case TasksCollectionActions.TasksCollectionActionsTypes.LoadCollection:
             return Object.assign({}, state, {loaded: false});
         case TasksCollectionActions.TasksCollectionActionsTypes.LoadCollectionSuccess:
-            return Object.assign({}, state, {collection: action.payload, loaded: true});
+            return Object.assign({}, state, {collection: action.payload.tasks, count: action.payload.count, loaded: true});
         case TasksCollectionActions.TasksCollectionActionsTypes.LoadCollectionFail:
             return Object.assign({}, state, {loaded: true});
         case TasksCollectionActions.TasksCollectionActionsTypes.PaginationChange:
-            return Object.assign({}, state, action.payload);
+            return Object.assign({}, state, {pageSize: action.payload.pageSize, pageIndex: action.payload.pageIndex});
         case TasksCollectionActionsTypes.FilterByStatus:
             return Object.assign({}, state, {statusFilter: action.payload});
         default:

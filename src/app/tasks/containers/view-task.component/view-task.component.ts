@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {TaskActions} from '../../actions';
 import {Subscription} from "rxjs";
 import {TaskDetails} from "../../models";
+import {MatDialog} from "@angular/material";
+import {ConfirmDialogComponent} from "../../../entry-components";
 
 @Component({
     selector: 'app-view-task',
@@ -13,7 +15,7 @@ import {TaskDetails} from "../../models";
 export class ViewTaskComponent implements OnDestroy {
     actionsSubscription: Subscription;
 
-    constructor(private stateService: StateService, private route: ActivatedRoute) {
+    constructor(private stateService: StateService, private route: ActivatedRoute, public dialog: MatDialog) {
         this.actionsSubscription = route.params.subscribe(
             params => stateService.dispatch(new TaskActions.Load(params.id))
         );
@@ -24,6 +26,13 @@ export class ViewTaskComponent implements OnDestroy {
     }
 
     onDelete(taskDetails: TaskDetails) {
-        this.stateService.dispatch(new TaskActions.Delete(taskDetails.id));
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {width: '384px'});
+        dialogRef.componentInstance.actionText = 'Delete';
+        dialogRef.componentInstance.message = `Are you sure you want to delete ${taskDetails.name}?`;
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.stateService.dispatch(new TaskActions.Delete(taskDetails));
+            }
+        });
     }
 }
